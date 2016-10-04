@@ -1,0 +1,24 @@
+<?php
+
+function taxonomy_filter_for_shs_module_shs_term_get_children_alter(&$terms, $alter_options) {
+	
+	$vid = $alter_options['vid'];
+	$parent = $alter_options['parent'];
+	$list = $terms[$vid][$parent][0]; 
+	$temp = array_keys($list); 
+	
+	//Modify terms
+	foreach($temp as $tid) {
+		//get taxonomy term object
+		$term = taxonomy_term_load($tid); 
+		//get nodes attached to a term
+		$node_matches = taxonomy_select_nodes($tid);		
+		if (sizeOf($node_matches) == 0) {
+			unset($terms[$vid][$parent][0][$tid]);
+			unset($terms[$vid][$tid]);
+		}
+	};
+
+	//Return an updated list of terms
+	return $terms;
+}

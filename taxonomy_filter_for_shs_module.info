@@ -1,0 +1,4 @@
+name = Taxonomy Filter
+description = Removes taxonomy terms that have no content associated with them from a view's filter. Works together with Simple Hierarchical Select module.
+dependencies[] = shs (1.x)
+core = 7.x
