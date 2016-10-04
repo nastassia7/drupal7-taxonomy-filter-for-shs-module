@@ -1,2 +1,5 @@
 # drupal7-taxonomy-filter-for-shs-module
-Removes (from display) taxonomy terms that have no content associated with them from a view's filter.
+Drupal 7 module that removes from a view's filter taxonomy terms that have no content (nodes) associated with them.
+
+NOTE: Works only with Simple Hierarchical Select module.
+
